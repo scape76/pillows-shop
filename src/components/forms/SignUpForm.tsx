@@ -9,7 +9,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "@/components/ui/Form";
 import { Input } from "@/components/ui/Input";
 import { useSignUp } from "@clerk/nextjs";
 import { useForm } from "react-hook-form";
@@ -19,7 +19,7 @@ import { Icons } from "../Icons";
 import { PasswordInput } from "@/components/PasswordInput";
 import * as z from "zod";
 import { useRouter } from "next/navigation";
-import { toast } from "../ui/use-toast";
+import { toast } from "../ui/useToast";
 
 type Inputs = z.infer<typeof authSchema>;
 

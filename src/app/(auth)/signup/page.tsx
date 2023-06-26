@@ -4,7 +4,11 @@ import SignUpCard from "@/components/auth/SignUpCard";
 interface pageProps {}
 
 const page: React.FC<pageProps> = ({}) => {
-  return <SignUpCard />;
+  return (
+    <div className="flex h-screen items-center justify-center">
+      <SignUpCard />
+    </div>
+  );
 };
 
 export default page;

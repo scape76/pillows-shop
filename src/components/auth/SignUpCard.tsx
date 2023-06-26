@@ -46,7 +46,7 @@ const SignUpCard: React.FC<SignUpCardProps> = ({}) => {
               href="/signin"
               className="text-primary underline-offset-4 transition-colors hover:underline"
             >
-              Sign up
+              Sign in
             </Link>
           </div>
         </CardFooter>

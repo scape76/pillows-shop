@@ -13,12 +13,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "@/components/ui/Form";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Icons } from "@/components/Icons";
 import { z } from "zod";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/components/ui/useToast";
 
 type Inputs = z.infer<typeof verifyEmailSchema>;
 

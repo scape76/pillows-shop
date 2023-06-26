@@ -14,7 +14,11 @@ import * as React from "react";
 interface pageProps {}
 
 const page: React.FC<pageProps> = ({}) => {
-  return <SignInCard />;
+  return (
+    <div className="justify-center h-screen flex items-center">
+      <SignInCard />
+    </div>
+  );
 };
 
 export default page;
