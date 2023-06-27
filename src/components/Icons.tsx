@@ -1,4 +1,14 @@
-import { Loader2,Eye, EyeOff, type Icon, type LucideProps } from "lucide-react";
+import {
+  Loader2,
+  Eye,
+  EyeOff,
+  User,
+  ShoppingBag,
+  type Icon as LucideIcon,
+  type LucideProps,
+} from "lucide-react";
+
+export type Icon = LucideIcon;
 
 export const Icons = {
   spinner: Loader2,
@@ -29,4 +39,6 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  user: User,
+  store: ShoppingBag
 };

@@ -7,12 +7,8 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = async ({ children }) => {
-  const user = await currentUser();
-
   return (
     <>
-      {" "}
-      <SiteHeader user={user} />
       {children}
     </>
   );

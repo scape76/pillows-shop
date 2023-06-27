@@ -15,7 +15,7 @@ const SiteHeader = ({ user }: SiteHeaderProps) => {
   console.log(user);
 
   return (
-    <header className="sticky top-0 z-40 flex items-center justify-center border-b bg-background/20 p-4">
+    <header className="sticky top-0 z-40 flex items-center justify-center border-b bg-background/90 p-4">
       <div className="flex w-full max-w-6xl items-center justify-between">
         <div className="flex items-center gap-4">
           <MainNav items={siteConfig.mainNav} />

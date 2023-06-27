@@ -11,7 +11,7 @@ interface ShellProps
   layout?: "default" | "dashboard" | "auth";
 }
 
-export function Shell({
+export default function Shell({
   children,
   className,
   layout = "default",
