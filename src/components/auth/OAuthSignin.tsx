@@ -16,9 +16,7 @@ const oauthProviders = [
   strategy: OAuthStrategy;
 }[];
 
-interface OAuthSignInProps {}
-
-const OAuthSignIn: React.FC<OAuthSignInProps> = ({}) => {
+const OAuthSignIn = ({}) => {
   const [isLoading, setIsLoading] = React.useState<OAuthStrategy | null>(null);
   const { signIn, isLoaded: signInLoaded } = useSignIn();
 

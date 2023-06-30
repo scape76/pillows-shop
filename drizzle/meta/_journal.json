@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1688064127465,
+      "tag": "0000_mean_texas_twister",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1688112093875,
+      "tag": "0001_clever_vertigo",
+      "breakpoints": true
+    }
+  ]
+}

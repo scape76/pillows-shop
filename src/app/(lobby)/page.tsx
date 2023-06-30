@@ -1,9 +1,8 @@
 import Link from "next/link";
 import * as React from "react";
 
-interface pageProps {}
 
-const page: React.FC<pageProps> = ({}) => {
+const page = ({}) => {
   return (
     <div>
       <Link href={"/signin"}> Sign in </Link>

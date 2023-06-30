@@ -2,22 +2,24 @@ import * as React from "react";
 import Header from "@/components/Header";
 import Shell from "@/components/Shell";
 import { siteConfig } from "@/config/site";
-import { UserProfile } from "@clerk/nextjs";
+import { UserProfile, currentUser } from "@clerk/nextjs";
 import { dashboardConfig } from "@/config/dashboard";
 import "@/styles/clerk.css";
+import { redirect } from "next/navigation";
+import AddStoreForm from "@/components/forms/AddStoreForm";
 
-interface pageProps {}
+export default async function page({}) {
+  const user = await currentUser();
 
-const page: React.FC<pageProps> = ({}) => {
+  if (!user) redirect("/signin");
+
   return (
     <Shell layout="dashboard">
       <Header
         title={dashboardConfig.sidebarNav.stores.new.title}
         description={dashboardConfig.sidebarNav.stores.new.description}
       />
-      <div className="w-full"></div>
+      <AddStoreForm userId={user.id} />
     </Shell>
   );
-};
-
-export default page;
+}

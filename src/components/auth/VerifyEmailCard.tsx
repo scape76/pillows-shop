@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { Shell } from "@/components/Shell";
+import Shell  from "@/components/Shell";
 import {
   Card,
   CardContent,

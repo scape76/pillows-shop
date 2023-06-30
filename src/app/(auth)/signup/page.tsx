@@ -1,9 +1,8 @@
 import * as React from "react";
 import SignUpCard from "@/components/auth/SignUpCard";
 
-interface pageProps {}
 
-const page: React.FC<pageProps> = ({}) => {
+const page = ({}) => {
   return (
     <div className="flex h-screen items-center justify-center">
       <SignUpCard />

@@ -17,7 +17,7 @@ import { authSchema } from "@/lib/validations/auth";
 import { Button } from "../ui/Button";
 import { Icons } from "../Icons";
 import { PasswordInput } from "@/components/PasswordInput";
-import * as z from "zod";
+import type * as z from "zod";
 import { useRouter } from "next/navigation";
 
 type Inputs = z.infer<typeof authSchema>;

@@ -6,9 +6,8 @@ import { UserProfile } from "@clerk/nextjs";
 import { dashboardConfig } from "@/config/dashboard";
 import "@/styles/clerk.css";
 
-interface pageProps {}
 
-const page: React.FC<pageProps> = ({}) => {
+const page = ({}) => {
   return (
     <Shell layout="dashboard">
       <Header

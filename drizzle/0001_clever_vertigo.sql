@@ -1,0 +1,1 @@
+ALTER TABLE `stores` ADD `name` varchar(191) NOT NULL;

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import * as React from "react";
 
@@ -14,15 +14,16 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/NavigationMenu";
 import { Icons } from "@/components/Icons";
+import type { MainNavItem } from "@/types";
 import Link from "next/link";
 
 interface MainNavProps {
-  items?: any[];
+  items?: MainNavItem[];
 }
 
 const MainNav: React.FC<MainNavProps> = ({ items }) => {
   return (
-    <div className="flex gap-6 items-center">
+    <div className="flex items-center gap-6">
       <Link href="/">
         <span className="font-bold">{siteConfig.name}</span>
       </Link>
@@ -57,13 +58,13 @@ const MainNav: React.FC<MainNavProps> = ({ items }) => {
           ) : null} */}
           {items?.map((item) =>
             item?.items ? (
-              <NavigationMenuItem>
+              <NavigationMenuItem key={item.title}>
                 <NavigationMenuTrigger className="h-auto capitalize">
                   {item.title}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                    {item.items.map((item: any) => (
+                    {item.items.map((item) => (
                       <ListItem
                         key={item.title}
                         title={item.title}

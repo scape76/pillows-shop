@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Icons } from "@/components/Icons";
-import { z } from "zod";
+import { type z } from "zod";
 import { toast } from "@/components/ui/useToast";
 
 type Inputs = z.infer<typeof verifyEmailSchema>;

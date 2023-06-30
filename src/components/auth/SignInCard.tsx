@@ -1,4 +1,4 @@
-import { Shell } from "@/components/Shell";
+import Shell from "@/components/Shell";
 import OAuthSignIn from "@/components/auth/OAuthSignin";
 import {
   Card,
@@ -12,9 +12,8 @@ import * as React from "react";
 import SignInForm from "../forms/SignInForm";
 import Link from "next/link";
 
-interface SignInCardProps {}
 
-const SignInCard: React.FC<SignInCardProps> = ({}) => {
+const SignInCard = ({}) => {
   return (
     <Shell layout="auth">
       <Card>

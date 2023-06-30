@@ -1,21 +1,10 @@
-import { Shell } from "@/components/Shell";
-import OAuthSignIn from "@/components/auth/OAuthSignin";
 import SignInCard from "@/components/auth/SignInCard";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/Card";
 import * as React from "react";
 
-interface pageProps {}
 
-const page: React.FC<pageProps> = ({}) => {
+const page = ({}) => {
   return (
-    <div className="justify-center h-screen flex items-center">
+    <div className="flex h-screen items-center justify-center">
       <SignInCard />
     </div>
   );

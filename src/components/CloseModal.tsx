@@ -3,12 +3,11 @@
 import * as React from "react";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { FC } from "react";
+import { type FC } from "react";
 import { Button } from "./ui/Button";
 import { cn } from "@/lib/utils";
 
-interface CloseModalProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+type CloseModalProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const CloseModal: FC<CloseModalProps> = ({ className }) => {
   const router = useRouter();

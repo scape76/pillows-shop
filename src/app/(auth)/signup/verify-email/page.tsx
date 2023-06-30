@@ -1,14 +1,5 @@
 import type { Metadata } from "next";
 
-import { Shell } from "@/components/Shell";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/Card";
-import VerifyEmailForm from "@/components/forms/VerifyEmailForm";
 import VerifyEmailCard from "@/components/auth/VerifyEmailCard";
 
 export const metadata: Metadata = {

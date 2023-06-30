@@ -1,5 +1,5 @@
 import { currentUser } from "@clerk/nextjs";
-import { User } from "@clerk/nextjs/dist/types/server";
+import { type User } from "@clerk/nextjs/dist/types/server";
 import * as React from "react";
 import MainNav from "@/components/layouts/MainNav";
 import { siteConfig } from "@/config/site";
@@ -12,7 +12,6 @@ interface SiteHeaderProps {
 }
 
 const SiteHeader = ({ user }: SiteHeaderProps) => {
-  console.log(user);
 
   return (
     <header className="sticky top-0 z-40 flex items-center justify-center border-b bg-background/90 p-4">
