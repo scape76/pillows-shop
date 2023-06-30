@@ -4,8 +4,10 @@ import {
   EyeOff,
   User,
   ShoppingBag,
+  ChevronLeft,
   type Icon as LucideIcon,
   type LucideProps,
+  ChevronRight,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -40,5 +42,7 @@ export const Icons = {
     </svg>
   ),
   user: User,
-  store: ShoppingBag
+  store: ShoppingBag,
+  chevronLeft: ChevronLeft,
+  chevronRight: ChevronRight,
 };
