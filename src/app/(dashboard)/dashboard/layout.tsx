@@ -1,7 +1,7 @@
 import * as React from "react";
 import { siteConfig } from "@/config/site";
 import AsideItem from "@/components/AsideItem";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/components/ui/ScrollArea";
 import { dashboardConfig } from "@/config/dashboard";
 
 interface LayoutProps {

@@ -27,8 +27,8 @@ import {
   CardTitle,
 } from "@/components/ui/Card";
 import { storeSchema } from "@/lib/validations/store";
-import { Textarea } from "../ui/textarea";
-import { toast } from "../ui/useToast";
+import { Textarea } from "@/components/ui/Textarea";
+import { toast } from "@/components/ui/useToast";
 import { addStoreAction } from "@/app/_actions/store";
 
 interface AddStoreFormProps {
@@ -55,7 +55,7 @@ const AddStoreForm: React.FC<AddStoreFormProps> = ({ userId }) => {
         await addStoreAction({ ...data, userId });
 
         form.reset();
-        
+
         toast({
           title: "Store added successfully",
         });

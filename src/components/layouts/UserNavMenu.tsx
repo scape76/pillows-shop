@@ -11,8 +11,8 @@ import {
   DropdownMenuGroup,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+} from "@/components/ui/DropdownMenu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { Button } from "../ui/Button";
 import Link from "next/link";
 import { Icons } from "../Icons";
