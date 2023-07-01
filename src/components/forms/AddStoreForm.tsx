@@ -62,6 +62,8 @@ const AddStoreForm: React.FC<AddStoreFormProps> = ({ userId }) => {
         router.push("/dashboard/stores");
         router.refresh();
       } catch (e) {
+
+        console.log(e);
         e instanceof Error
           ? toast({
               title: "Error",

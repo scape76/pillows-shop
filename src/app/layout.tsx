@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { ClerkProvider, currentUser } from "@clerk/nextjs";
 import SiteHeader from "@/components/SiteHeader";
+import { Toaster } from "@/components/ui/Toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default async function RootLayout({
           <SiteHeader user={user} />
           {children}
           {authModal}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

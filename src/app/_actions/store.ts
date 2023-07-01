@@ -6,7 +6,7 @@ import { Store, stores } from "@/db/schema";
 import { slugify } from "@/lib/utils";
 import { getStoreSchema, storeSchema } from "@/lib/validations/store";
 import { User } from "@clerk/nextjs/dist/types/server";
-import { and, asc, desc, eq, lt, lte } from "drizzle-orm";
+import { and, asc, desc, eq, gt, lt, lte } from "drizzle-orm";
 import * as z from "zod";
 
 export async function addStoreAction(
@@ -31,6 +31,10 @@ export async function addStoreAction(
 
   revalidatePath("/dashboard/stores");
 }
+
+// 1 2 3 4 5
+// 5 4 3 
+// 3 -> 2 or 1 
 
 export async function getPreviousStoreIdAction(
   input: z.infer<typeof getStoreSchema>
@@ -60,6 +64,7 @@ export async function getPreviousStoreIdAction(
   return previousStore.id;
 }
 
+
 export async function getNextStoreIdAction(
   input: z.infer<typeof getStoreSchema>
 ) {
@@ -68,7 +73,7 @@ export async function getNextStoreIdAction(
   }
 
   const nextStore = await db.query.stores.findFirst({
-    where: and(eq(stores.userId, input.userId), lte(stores.id, input.id)),
+    where: and(eq(stores.userId, input.userId), gt(stores.id, input.id)),
     orderBy: asc(stores.id),
   });
 

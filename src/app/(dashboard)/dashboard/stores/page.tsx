@@ -19,7 +19,7 @@ import "@/styles/clerk.css";
 import { stores } from "@/db/schema";
 import Link from "next/link";
 import { db } from "@/db";
-import { eq } from "drizzle-orm";
+import { asc, desc, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 
 const page = async ({}) => {
@@ -69,7 +69,9 @@ const page = async ({}) => {
         ))}
         <Card className="flex h-full flex-col bg-accent">
           <CardHeader className="flex-1">
-            <CardTitle className="line-clamp-1 text-accent-foreground">Create a new store</CardTitle>
+            <CardTitle className="line-clamp-1 text-accent-foreground">
+              Create a new store
+            </CardTitle>
             <CardDescription className="line-clamp-2 text-accent-foreground">
               Create a new store to start selling your products.
             </CardDescription>
