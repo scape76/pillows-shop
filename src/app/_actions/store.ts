@@ -17,7 +17,17 @@ export async function addStoreAction(
   });
 
   if (storeWithSameName) {
-    throw new Error("Store name already taken");
+    throw new Error("Store name already taken.");
+  }
+
+  // validate if user has less than 3 stores
+
+  const userStores = await db.query.stores.findMany({
+    where: eq(stores.userId, input.userId),
+  });
+
+  if (userStores.length >= 3) {
+    throw new Error("You are not allowed to create more than 3 stores.")
   }
 
   console.log("--------inserting---------");
@@ -33,8 +43,8 @@ export async function addStoreAction(
 }
 
 // 1 2 3 4 5
-// 5 4 3 
-// 3 -> 2 or 1 
+// 5 4 3
+// 3 -> 2 or 1
 
 export async function getPreviousStoreIdAction(
   input: z.infer<typeof getStoreSchema>
@@ -63,7 +73,6 @@ export async function getPreviousStoreIdAction(
 
   return previousStore.id;
 }
-
 
 export async function getNextStoreIdAction(
   input: z.infer<typeof getStoreSchema>

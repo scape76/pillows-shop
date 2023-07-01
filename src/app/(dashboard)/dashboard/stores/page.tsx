@@ -12,6 +12,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/Tooltip";
+
 import Header from "@/components/Header";
 import Shell from "@/components/Shell";
 
@@ -67,7 +74,7 @@ const page = async ({}) => {
             </CardContent>
           </Card>
         ))}
-        <Card className="flex h-full flex-col bg-accent">
+        <Card className="flex h-full flex-col">
           <CardHeader className="flex-1">
             <CardTitle className="line-clamp-1 text-accent-foreground">
               Create a new store
@@ -77,16 +84,46 @@ const page = async ({}) => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Link href={"/dashboard/stores/new"}>
-              <div
-                className={cn(
-                  buttonVariants({ size: "sm", className: "h-8 w-full" })
-                )}
-              >
-                Create a store
-                <span className="sr-only">Create a store</span>
-              </div>
-            </Link>
+            {userStores.length < 3 ? (
+              <Link href={"/dashboard/stores/new"}>
+                <div
+                  className={cn(
+                    buttonVariants({
+                      size: "sm",
+                      className: "h-8 w-full",
+                    })
+                  )}
+                >
+                  Create a store
+                  <span className="sr-only">Create a store</span>
+                </div>
+              </Link>
+            ) : (
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger className="w-full">
+                    <div
+                      className={cn(
+                        buttonVariants({
+                          size: "sm",
+                          className:
+                            "w-full bg-accent text-foreground hover:cursor-default hover:bg-accent hover:text-foreground",
+                        })
+                      )}
+                    >
+                      Create a store
+                    </div>
+                    <span className="sr-only">Create a store</span>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>You cannot have more than 3 stores.</p>
+                    <span className="sr-only">
+                      You cannot have more than 3 stores.
+                    </span>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
           </CardContent>
         </Card>
       </div>
