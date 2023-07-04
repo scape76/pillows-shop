@@ -2,7 +2,7 @@
 
 import { Store } from "@/db/schema";
 import * as React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 

@@ -7,6 +7,7 @@ import {
   text,
   int,
   datetime,
+  mysqlEnum,
 } from "drizzle-orm/mysql-core";
 
 export const stores = mysqlTable("stores", {
@@ -32,6 +33,10 @@ export const products = mysqlTable("products", {
   description: text("description"),
   price: decimal("price", { precision: 10, scale: 2 }),
   storeId: int("storeId").notNull(),
+  category: mysqlEnum("category", ["pillows"]),
+  createdAt: datetime("createdAt", { mode: "string", fsp: 3 })
+    .notNull()
+    .default(sql`CURRENT_TIMESTAMP(3)`),
 });
 
 export const productsRelations = relations(products, ({ one }) => ({

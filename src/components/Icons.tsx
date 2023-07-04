@@ -8,6 +8,14 @@ import {
   type Icon as LucideIcon,
   type LucideProps,
   ChevronRight,
+  MoreVertical,
+  Pen,
+  EyeIcon,
+  Trash,
+  BadgePlus,
+  SlidersHorizontal,
+  ChevronsLeft,
+  ChevronsRight,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -45,4 +53,11 @@ export const Icons = {
   store: ShoppingBag,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
+  chevronsLeft: ChevronsLeft,
+  chevronsRight: ChevronsRight,
+  verticalThreeDots: MoreVertical,
+  edit: Pen,
+  trash: Trash,
+  addCircle: BadgePlus,
+  horizontalSliders: SlidersHorizontal,
 };

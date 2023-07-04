@@ -4,7 +4,6 @@ import Shell from "@/components/Shell";
 import { siteConfig } from "@/config/site";
 import { UserProfile, currentUser } from "@clerk/nextjs";
 import { dashboardConfig } from "@/config/dashboard";
-import "@/styles/clerk.css";
 import { redirect } from "next/navigation";
 import AddStoreForm from "@/components/forms/AddStoreForm";
 
