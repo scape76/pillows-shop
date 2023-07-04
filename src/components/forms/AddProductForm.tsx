@@ -12,12 +12,9 @@ import {
   UncontrolledFormMessage,
 } from "@/components/ui/Form";
 import { Input } from "@/components/ui/Input";
-import { useSignIn } from "@clerk/nextjs";
 import { useForm } from "react-hook-form";
-import { authSchema } from "@/lib/validations/auth";
 import { Button } from "../ui/Button";
 import { Icons } from "../Icons";
-import { PasswordInput } from "@/components/PasswordInput";
 import type * as z from "zod";
 import { useRouter } from "next/navigation";
 import {
@@ -27,10 +24,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/Card";
-import { storeSchema } from "@/lib/validations/store";
 import { Textarea } from "@/components/ui/Textarea";
 import { toast } from "@/components/ui/useToast";
-import { addStoreAction } from "@/app/_actions/store";
 import { Store, products } from "@/db/schema";
 import {
   Select,
@@ -41,7 +36,12 @@ import {
   SelectValue,
 } from "../ui/Select";
 import { productSchema } from "@/lib/validations/product";
-import { addProductAction } from "@/app/_actions/product";
+import { addProductAction, checkProductAction } from "@/app/_actions/product";
+import { generateReactHelpers } from "@uploadthing/react/hooks";
+import type { FileWithPreview } from "@/types";
+import type { OurFileRouter } from "@/app/api/uploadthing/core";
+import { isArrayOfFile } from "@/lib/utils";
+import { FileDialog } from "../FileDialog";
 
 interface AddStoreFormProps {
   userId: User["id"];
@@ -51,13 +51,21 @@ interface AddStoreFormProps {
 
 type Inputs = z.infer<typeof productSchema>;
 
+const { useUploadThing } = generateReactHelpers<OurFileRouter>();
+
 const AddStoreForm: React.FC<AddStoreFormProps> = ({
   userId,
   storeId,
   storeName,
 }) => {
+  const [files, setFiles] = React.useState<FileWithPreview[] | null>(null);
+
   const router = useRouter();
   const [isPending, startTransition] = React.useTransition();
+
+  // uploadthing
+
+  const { isUploading, startUpload } = useUploadThing("productImage");
 
   const form = useForm<Inputs>({
     resolver: zodResolver(productSchema),
@@ -69,6 +77,10 @@ const AddStoreForm: React.FC<AddStoreFormProps> = ({
   function onSubmit(data: Inputs) {
     startTransition(async () => {
       try {
+        await checkProductAction({ name: data.name });
+
+        // const images = isArrayOfFile(data.images) ?
+
         await addProductAction({ ...data, storeId, userId });
 
         form.reset();
@@ -180,6 +192,23 @@ const AddStoreForm: React.FC<AddStoreFormProps> = ({
                   {...form.register("price")}
                 />
               </FormControl>
+            </FormItem>
+            <FormItem>
+              <div className="flex flex-col gap-2">
+                <FormLabel>Images</FormLabel>
+                <FormControl>
+                  <FileDialog
+                    setValue={form.setValue}
+                    name="images"
+                    maxFiles={3}
+                    maxSize={1024 * 1024 * 4}
+                    files={files}
+                    setFiles={setFiles}
+                    isUploading={isUploading}
+                    disabled={isPending}
+                  />
+                </FormControl>
+              </div>
             </FormItem>
             <Button className="w-fit" disabled={isPending}>
               {isPending && (

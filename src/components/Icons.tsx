@@ -16,6 +16,10 @@ import {
   SlidersHorizontal,
   ChevronsLeft,
   ChevronsRight,
+  X,
+  Crop,
+  Upload,
+  RotateCcw,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -60,4 +64,8 @@ export const Icons = {
   trash: Trash,
   addCircle: BadgePlus,
   horizontalSliders: SlidersHorizontal,
+  close: X,
+  crop: Crop,
+  upload: Upload,
+  reset: RotateCcw 
 };

@@ -1,3 +1,4 @@
+import type { StoredFile } from "@/types";
 import { relations, sql, InferModel } from "drizzle-orm";
 import {
   serial,
@@ -8,6 +9,7 @@ import {
   int,
   datetime,
   mysqlEnum,
+  json,
 } from "drizzle-orm/mysql-core";
 
 export const stores = mysqlTable("stores", {
@@ -37,6 +39,7 @@ export const products = mysqlTable("products", {
   createdAt: datetime("createdAt", { mode: "string", fsp: 3 })
     .notNull()
     .default(sql`CURRENT_TIMESTAMP(3)`),
+  images: json("images").$type<StoredFile[] | null>().default(null),
 });
 
 export const productsRelations = relations(products, ({ one }) => ({

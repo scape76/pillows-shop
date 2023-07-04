@@ -4,7 +4,7 @@ import { db } from "@/db";
 import { Product, Store, products, stores } from "@/db/schema";
 import { productSchema } from "@/lib/validations/product";
 import { User } from "@clerk/nextjs/dist/types/server";
-import { and, eq, inArray } from "drizzle-orm";
+import { and, eq, inArray, not } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import * as z from "zod";
 
@@ -33,6 +33,24 @@ export async function addProductAction(
     price: input.price,
     category: input.category,
   });
+}
+export async function checkProductAction(input: {
+  name: Product["name"];
+  id?: Product["id"];
+}) {
+  if (typeof input.name !== "string") {
+    throw new Error("Invalid input.");
+  }
+
+  const productWithSameName = await db.query.products.findFirst({
+    where: input.id
+      ? and(not(eq(products.id, input.id)), eq(products.name, input.name))
+      : eq(products.name, input.name),
+  });
+
+  if (productWithSameName) {
+    throw new Error("Product name already taken.");
+  }
 }
 
 export async function deleteProductAction(input: {
